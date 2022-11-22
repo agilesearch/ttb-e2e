@@ -1,0 +1,39 @@
+{
+  "name": "ttb-e2e",
+  "private": "true",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agilesearch/ttb-e2e.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agilesearch/ttb-e2e/issues"
+  },
+  "homepage": "https://github.com/agilesearch/ttb-e2e#readme",
+  "lint-staged": {
+    "packages/**/src/**/*.{js,ts}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "packages/**/src/**/*.{json,yml}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "cypress": "^11.1.0"
+  }
+}
