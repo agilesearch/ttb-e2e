@@ -11,8 +11,59 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
+Cypress.Commands.add("adminlogin", () => { 
+    cy.visit(`${Cypress.env('SITE_URL')}/login`)
+    cy.get('input[name="username"]')
+        .type(Cypress.env('ADMIN_LOGIN'))
+
+    cy.get('input[name="password"]')
+        .type(Cypress.env('ADMIN_PASSWORD'))
+
+    cy.get('button[type="submit"]')
+        .click()
+
+    cy.get('table[role="table"]') // make names more specific
+        .should('be.visible')
+ })
+
+Cypress.Commands.add("clientlogin", () => {
+    cy.visit(`${Cypress.env('SITE_URL')}/login`)
+    cy.get('input[name="username"]')
+        .type(Cypress.env('CLIENT_LOGIN'))
+
+    cy.get('input[name="password"]')
+        .type(Cypress.env('CLIENT_PASSWORD'))
+
+    cy.get('button[type="submit"]')
+        .click()
+
+    cy.get('table[role="table"]') // make names more specific
+        .should('be.visible')
+})
+
+Cypress.Commands.add("userlogin", () => {
+    cy.visit(`${Cypress.env('SITE_URL')}/login`)
+    cy.get('input[name="username"]')
+        .type(Cypress.env('USER_LOGIN'))
+
+    cy.get('input[name="password"]')
+        .type(Cypress.env('USER_PASSWORD'))
+
+    cy.get('button[type="submit"]')
+        .click()
+
+    cy.get('table[role="table"]') // make names more specific
+        .should('be.visible')
+})
+
+Cypress.Commands.add("logout", () => {
+    cy.get(':nth-child(3) > .btn-icon-label > .las')
+        .click()
+
+    cy.get('.modal-actions > .btn-contained > .flex')
+        .click()
+})
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

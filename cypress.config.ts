@@ -9,6 +9,10 @@ export default defineConfig({
       const envs = dotenv.config();
 
       if (envs && envs.parsed) {
+        if (process.env) {
+          // modify env value
+          config.env = process.env
+        }
         config.env = envs.parsed;
       }
 

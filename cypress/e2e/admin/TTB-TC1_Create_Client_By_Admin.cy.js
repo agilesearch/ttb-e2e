@@ -1,17 +1,6 @@
 describe("TTB-TC1_Create_Client_By_Admin", () => {
   beforeEach("Login as an Admin", () => {
-    cy.visit(`${Cypress.env('SITE_URL')}/login`)
-    cy.get('input[name="username"]')
-      .type(Cypress.env('ADMIN_LOGIN'))
-
-    cy.get('input[name="password"]')
-      .type(Cypress.env('ADMIN_PASSWORD'))
-
-    cy.get('button[type="submit"]')
-      .click()
-
-    cy.get('table[role="table"]') // make names more specific
-      .should('be.visible')
+    cy.adminlogin()
   })
   it("tests TTB-TC1_Create_Client_By_Admin", () => {
     cy.visit(`${Cypress.env('SITE_URL')}/admins/settings`)
@@ -37,11 +26,7 @@ describe("TTB-TC1_Create_Client_By_Admin", () => {
 
   })
   afterEach("Logout", () => {
-    cy.get(':nth-child(3) > .btn-icon-label > .las')
-    .click()
-
-    cy.get('.modal-actions > .btn-contained > .flex')
-    .click()
+    cy.logout()
   })
 
 });
