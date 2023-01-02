@@ -41,13 +41,13 @@ Cypress.Commands.add("clientlogin", () => {
         .should('be.visible')
 })
 
-Cypress.Commands.add("userlogin", () => {
+Cypress.Commands.add("supplierlogin", () => {
     cy.visit(`${Cypress.env('SITE_URL')}/login`)
     cy.get('input[name="username"]')
-        .type(Cypress.env('USER_LOGIN'))
+        .type(Cypress.env('SUPPLIER_LOGIN'))
 
     cy.get('input[name="password"]')
-        .type(Cypress.env('USER_PASSWORD'))
+        .type(Cypress.env('SUPPLIER_PASSWORD'))
 
     cy.get('button[type="submit"]')
         .click()
