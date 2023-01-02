@@ -20,7 +20,7 @@ describe("TTB-TC1_Create_Client_By_Admin", () => {
       .click()
     
     cy.get('input[name="name"]')
-    .type(Cypress.env('TC1_CLIENT_NAME'))
+      .type(Cypress.env('TC1_CLIENT_NAME'))
 
     cy.get('input[name="email"]')
       .type(Cypress.env('TC1_CLIENT_EMAIL'))
